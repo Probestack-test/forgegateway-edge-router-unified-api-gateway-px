@@ -27,7 +27,7 @@ jobs:
       apigee_env: dev
       deploy_proxy: forgegateway-edge-router-unified-api-gateway
       resourcetype: apis
-      branch_name: ${{ github.ref_name }}
+      branch_name: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref || github.ref_name }}
       cicd_config_id: 6a5c4e4f19924f68338400de
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
