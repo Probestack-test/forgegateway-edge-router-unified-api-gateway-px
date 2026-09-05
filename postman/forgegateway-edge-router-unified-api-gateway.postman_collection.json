@@ -1,0 +1,251 @@
+{
+  "info" : {
+    "name" : "forgegateway-edge-router-unified-api-gateway Postman Collection",
+    "description" : "The single entry point for all external consumers (UI, CLI, and external integrations). \nHandles request authentication (JWT), rate limiting (per API key), and intelligent routing \nto downstream microservices (Enhancement, Assessment, Workspace, Scheduler, Notifier). \nAdditionally, it provides composite aggregation endpoints to reduce network chatter \nfor the frontend dashboard.\n\n\nOpenAPI version: 1.0.0",
+    "schema" : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth" : {
+    "type" : "apikey",
+    "apikey" : [ {
+      "key" : "key",
+      "value" : "x-api-key",
+      "type" : "string"
+    }, {
+      "key" : "value",
+      "value" : "{{apiKey}}",
+      "type" : "string"
+    }, {
+      "key" : "in",
+      "value" : "header",
+      "type" : "string"
+    } ]
+  },
+  "variable" : [ {
+    "key" : "baseUrl",
+    "value" : "https://api.forgesphere.lightning.com/v1",
+    "type" : "string",
+    "description" : "Override with the base URL of the deployed Apigee proxy."
+  }, {
+    "key" : "apiKey",
+    "value" : "",
+    "type" : "string"
+  }, {
+    "key" : "routeId",
+    "value" : "",
+    "type" : "string"
+  }, {
+    "key" : "jobId",
+    "value" : "",
+    "type" : "string",
+    "description" : "The enhancement job UUID."
+  }, {
+    "key" : "status",
+    "value" : "",
+    "type" : "string"
+  }, {
+    "key" : "page",
+    "value" : "",
+    "type" : "string"
+  } ],
+  "item" : [ {
+    "name" : "Check overall system health",
+    "request" : {
+      "method" : "GET",
+      "description" : "Check overall system health\n\nResponses:\n- 200: Gateway and all downstream services are healthy.\n- 503: Gateway is up but one or more critical services are down.",
+      "header" : [ ],
+      "url" : {
+        "raw" : "{{baseUrl}}/gateway/health",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "gateway", "health" ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "List all active routing rules",
+    "request" : {
+      "method" : "GET",
+      "description" : "List all active routing rules\n\nResponses:\n- 200: List of active route configurations.\n- 500: Unexpected error in gateway routing or downstream service communication.",
+      "header" : [ ],
+      "url" : {
+        "raw" : "{{baseUrl}}/gateway/routes",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "gateway", "routes" ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Create a new routing rule (Admin Only)",
+    "request" : {
+      "method" : "POST",
+      "description" : "Create a new routing rule (Admin Only)\n\nResponses:\n- 201: Route created successfully.\n- 400: Invalid payload or missing required fields.\n- 409: A route with this path already exists.\n- 500: Unexpected error in gateway routing or downstream service communication.",
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "type" : "text"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{}",
+        "options" : {
+          "raw" : {
+            "language" : "json"
+          }
+        }
+      },
+      "url" : {
+        "raw" : "{{baseUrl}}/gateway/routes",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "gateway", "routes" ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Delete a routing rule",
+    "request" : {
+      "method" : "DELETE",
+      "description" : "Delete a routing rule\n\nResponses:\n- 204: Route successfully deleted.\n- 404: The requested resource or route does not exist.",
+      "header" : [ ],
+      "url" : {
+        "raw" : "{{baseUrl}}/gateway/routes/:routeId",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "gateway", "routes", ":routeId" ],
+        "variable" : [ {
+          "key" : "routeId",
+          "value" : "{{routeId}}"
+        } ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Get current rate limit configuration",
+    "request" : {
+      "method" : "GET",
+      "description" : "Get current rate limit configuration\n\nResponses:\n- 200: Rate limit configuration.\n- 500: Unexpected error in gateway routing or downstream service communication.",
+      "header" : [ ],
+      "url" : {
+        "raw" : "{{baseUrl}}/gateway/rate-limits",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "gateway", "rate-limits" ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Update global rate limit defaults",
+    "request" : {
+      "method" : "PUT",
+      "description" : "Update global rate limit defaults\n\nResponses:\n- 200: Rate limits updated successfully.\n- 400: Invalid payload or missing required fields.\n- 500: Unexpected error in gateway routing or downstream service communication.",
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "type" : "text"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{}",
+        "options" : {
+          "raw" : {
+            "language" : "json"
+          }
+        }
+      },
+      "url" : {
+        "raw" : "{{baseUrl}}/gateway/rate-limits",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "gateway", "rate-limits" ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Get full enhancement dashboard data in one call",
+    "request" : {
+      "method" : "GET",
+      "description" : "Get full enhancement dashboard data in one call\n\nResponses:\n- 200: Aggregated dashboard data.\n- 404: The requested resource or route does not exist.\n- 500: Unexpected error in gateway routing or downstream service communication.",
+      "header" : [ ],
+      "url" : {
+        "raw" : "{{baseUrl}}/gateway/dashboard/enhancement/:jobId",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "gateway", "dashboard", "enhancement", ":jobId" ],
+        "variable" : [ {
+          "key" : "jobId",
+          "value" : "{{jobId}}",
+          "description" : "The enhancement job UUID."
+        } ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Proxy - List enhancements",
+    "request" : {
+      "method" : "GET",
+      "description" : "Proxy - List enhancements\n\nResponses:\n- 200: Response from the Enhancement Service.\n- 500: Unexpected error in gateway routing or downstream service communication.",
+      "header" : [ ],
+      "url" : {
+        "raw" : "{{baseUrl}}/api/enhancements?status={{status}}&page={{page}}",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "api", "enhancements" ],
+        "query" : [ {
+          "key" : "status",
+          "value" : "{{status}}",
+          "disabled" : true
+        }, {
+          "key" : "page",
+          "value" : "{{page}}",
+          "disabled" : true
+        } ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Proxy - Start new enhancement",
+    "request" : {
+      "method" : "POST",
+      "description" : "Proxy - Start new enhancement\n\nResponses:\n- 202: Accepted by Enhancement Service.\n- 400: Invalid payload or missing required fields.\n- 500: Unexpected error in gateway routing or downstream service communication.",
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "type" : "text"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{}",
+        "options" : {
+          "raw" : {
+            "language" : "json"
+          }
+        }
+      },
+      "url" : {
+        "raw" : "{{baseUrl}}/api/enhancements",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "api", "enhancements" ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Proxy - Sync Git workspace",
+    "request" : {
+      "method" : "POST",
+      "description" : "Proxy - Sync Git workspace\n\nResponses:\n- 200: Workspace synced.\n- 400: Invalid payload or missing required fields.\n- 500: Unexpected error in gateway routing or downstream service communication.",
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "type" : "text"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{}",
+        "options" : {
+          "raw" : {
+            "language" : "json"
+          }
+        }
+      },
+      "url" : {
+        "raw" : "{{baseUrl}}/api/workspace/git/sync",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "api", "workspace", "git", "sync" ]
+      }
+    },
+    "response" : [ ]
+  } ]
+}
