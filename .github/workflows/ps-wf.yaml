@@ -8,9 +8,16 @@ on:
   pull_request:
     branches:
       - release
+    types:
+      - closed
 
 jobs:
   deploy:
+    if: >
+      github.event_name == 'push' ||
+      (github.event_name == 'pull_request' &&
+      github.event.pull_request.merged == true)
+       
     uses: ForgeCrux/pipeline-template/.github/workflows/apigee-v1.yaml@main
     permissions:
       contents: read
