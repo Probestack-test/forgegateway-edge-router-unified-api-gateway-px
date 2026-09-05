@@ -18,7 +18,7 @@ jobs:
       (github.event_name == 'pull_request' &&
        github.event.pull_request.merged == true)
 
-    uses: ForgeCrux/pipeline-template/.github/workflows/apigee-v1.yaml@main
+    uses: Probestack-test/fsp-pipeline/.github/workflows/test.yml@main
 
     permissions:
       contents: read
