@@ -1,0 +1,200 @@
+{
+  "microserviceId" : "6a9c2caff2730d0710cb54e1",
+  "mocks" : [ {
+    "id" : "e12544bc-6984-479f-b172-13a632b3c4b9",
+    "microserviceId" : "6a9c2caff2730d0710cb54e1",
+    "specMetadataId" : "6a9c2cd040e8243f64aac21e",
+    "apiSpecName" : "ForgeGateway - Edge Router & Unified API Gateway",
+    "name" : "mock-forgegateway---edge-router-&-unified-api-gateway",
+    "mockServiceName" : "mock-forgegateway---edge-router-&-unified-api-gateway",
+    "mockServerUrl" : "https://forgesphere.probestack.io/mock-api/v1/api/mocks/mock-561e7634",
+    "responseLatencyMs" : 0,
+    "mockUrl" : "mock-561e7634",
+    "isPrivate" : true,
+    "delayMs" : 0,
+    "requestCount" : 0,
+    "createdAt" : "2026-09-05T14:53:18.438Z",
+    "updatedAt" : "2026-09-05T14:53:18.458Z",
+    "endpoints" : [ {
+      "id" : "7c94fd36-c6f9-425d-9137-1c845643f960",
+      "mockId" : "e12544bc-6984-479f-b172-13a632b3c4b9",
+      "path" : "/api/enhancements",
+      "method" : "GET",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"content\":[{}],\"totalElements\":0}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : null,
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-05T14:53:18.632Z",
+      "updatedAt" : "2026-09-05T14:53:18.633Z"
+    }, {
+      "id" : "1ffaf3fa-683b-4928-b88b-8854b278991b",
+      "mockId" : "e12544bc-6984-479f-b172-13a632b3c4b9",
+      "path" : "/api/enhancements",
+      "method" : "POST",
+      "responseStatus" : 202,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : "{\"repositoryUrl\":\"string\",\"branch\":\"string\",\"fixesToApply\":[\"string\"]}",
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-05T14:53:18.641Z",
+      "updatedAt" : "2026-09-05T14:53:18.642Z"
+    }, {
+      "id" : "06e8a0b1-de36-4c65-9727-6610e2c66e71",
+      "mockId" : "e12544bc-6984-479f-b172-13a632b3c4b9",
+      "path" : "/api/workspace/git/sync",
+      "method" : "POST",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : "{\"repositoryUrl\":\"string\",\"branch\":\"string\",\"forceClean\":false}",
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-05T14:53:18.649Z",
+      "updatedAt" : "2026-09-05T14:53:18.650Z"
+    }, {
+      "id" : "dcc844d0-111a-4b4a-a625-25dfc8921346",
+      "mockId" : "e12544bc-6984-479f-b172-13a632b3c4b9",
+      "path" : "/gateway/dashboard/enhancement/{jobId}",
+      "method" : "GET",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"jobId\":\"550e8400-e29b-41d4-a716-446655440000\",\"status\":\"RUNNING\",\"repository\":\"git@github.com:forgesphere/payment-app.git\",\"branch\":\"main\",\"appliedFixes\":[\"ACTUATOR_HEALTH\",\"PROMETHEUS_METRICS\"],\"queueInfo\":{\"scheduledStart\":\"2024-01-01T00:00:00Z\",\"currentAttempt\":2,\"maxAttempts\":5},\"lastNotification\":{\"channel\":\"EMAIL\",\"status\":\"DELIVERED\",\"sentAt\":\"2024-01-01T00:00:00Z\"},\"summary\":{\"totalRuns\":3,\"successRate\":66.7,\"averageDurationSeconds\":120}}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : null,
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-05T14:53:18.622Z",
+      "updatedAt" : "2026-09-05T14:53:18.623Z"
+    }, {
+      "id" : "8de2ad1c-0013-4de9-b5b3-fbc233f7cab4",
+      "mockId" : "e12544bc-6984-479f-b172-13a632b3c4b9",
+      "path" : "/gateway/health",
+      "method" : "GET",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"status\":\"UP\",\"timestamp\":\"2024-01-01T00:00:00Z\",\"downstreamServices\":{\"enhancement-service\":{\"status\":\"UP\",\"latencyMs\":45},\"assessment-service\":{\"status\":\"UP\",\"latencyMs\":120},\"scheduler-service\":{\"status\":\"UP\",\"latencyMs\":10}}}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : null,
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-05T14:53:18.541Z",
+      "updatedAt" : "2026-09-05T14:53:18.545Z"
+    }, {
+      "id" : "87ca500f-bf95-47fa-92f5-aa59f501955c",
+      "mockId" : "e12544bc-6984-479f-b172-13a632b3c4b9",
+      "path" : "/gateway/rate-limits",
+      "method" : "GET",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"defaultLimit\":60,\"defaultBurst\":100,\"clientOverrides\":{\"admin_client_123\":{\"limit\":1000,\"burst\":2000}}}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : null,
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-05T14:53:18.592Z",
+      "updatedAt" : "2026-09-05T14:53:18.592Z"
+    }, {
+      "id" : "4c6d4216-77f7-4a16-b912-3ef4f67524a4",
+      "mockId" : "e12544bc-6984-479f-b172-13a632b3c4b9",
+      "path" : "/gateway/rate-limits",
+      "method" : "PUT",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"message\":\"Global rate limits updated successfully.\"}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : "{\"defaultLimit\":100,\"defaultBurst\":150}",
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-05T14:53:18.601Z",
+      "updatedAt" : "2026-09-05T14:53:18.601Z"
+    }, {
+      "id" : "94eb3c31-df49-4e96-a303-70b7dcc8fb32",
+      "mockId" : "e12544bc-6984-479f-b172-13a632b3c4b9",
+      "path" : "/gateway/routes",
+      "method" : "GET",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "[{\"id\":\"00000000-0000-0000-0000-000000000000\",\"pathPrefix\":\"/api/assessments\",\"targetServiceUrl\":\"http://assessment-service:8081/v1\",\"methods\":[\"GET\",\"POST\"],\"stripPrefix\":true,\"createdAt\":\"2024-01-01T00:00:00Z\"}]",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : null,
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-05T14:53:18.562Z",
+      "updatedAt" : "2026-09-05T14:53:18.562Z"
+    }, {
+      "id" : "387b970a-82c4-4070-b160-564c398221b8",
+      "mockId" : "e12544bc-6984-479f-b172-13a632b3c4b9",
+      "path" : "/gateway/routes",
+      "method" : "POST",
+      "responseStatus" : 201,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"id\":\"00000000-0000-0000-0000-000000000000\",\"pathPrefix\":\"/api/assessments\",\"targetServiceUrl\":\"http://assessment-service:8081/v1\",\"methods\":[\"GET\",\"POST\"],\"stripPrefix\":true,\"createdAt\":\"2024-01-01T00:00:00Z\"}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : "{\"pathPrefix\":\"/api/assessments\",\"targetServiceUrl\":\"http://assessment-service:8081/v1\",\"methods\":[\"GET\",\"POST\"],\"stripPrefix\":true}",
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-05T14:53:18.571Z",
+      "updatedAt" : "2026-09-05T14:53:18.571Z"
+    }, {
+      "id" : "d9574b34-f8ae-49d8-a496-ade3aeff6242",
+      "mockId" : "e12544bc-6984-479f-b172-13a632b3c4b9",
+      "path" : "/gateway/routes/{routeId}",
+      "method" : "DELETE",
+      "responseStatus" : 204,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : null,
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-05T14:53:18.582Z",
+      "updatedAt" : "2026-09-05T14:53:18.582Z"
+    } ]
+  } ]
+}
