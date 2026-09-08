@@ -178,7 +178,7 @@
 
   <!-- ═══ HTTP Proxy Connection ═════════════════════════════════════ -->
   <HTTPProxyConnection>
-    <BasePath>/v1</BasePath>
+    <BasePath>/v2</BasePath>
     <Properties/>
     <VirtualHost>secure</VirtualHost>
   </HTTPProxyConnection>
