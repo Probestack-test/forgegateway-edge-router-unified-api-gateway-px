@@ -5,7 +5,7 @@
 
   Proxy  : forgegateway-edge-router-unified-api-gateway
   Version: 1.0.0
-  BasePath: /v1
+  BasePath: /v2
   Generated: auto-generated — do not edit manually
 
   Policies included:
@@ -27,7 +27,7 @@ Additionally, it provides composite aggregation endpoints to reduce network chat
 for the frontend dashboard.
 </Description>
   <DisplayName>forgegateway-edge-router-unified-api-gateway</DisplayName>
-  <Basepaths>/v1</Basepaths>
+  <Basepaths>/v2</Basepaths>
   <ConfigurationVersion majorVersion="4" minorVersion="0"/>
   <CreatedAt>0</CreatedAt>
   <CreatedBy>apigee-generator</CreatedBy>
