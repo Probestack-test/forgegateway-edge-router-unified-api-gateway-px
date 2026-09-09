@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - feature-adarsha
-
-  pull_request:
-    branches:
       - release
 
 jobs:
